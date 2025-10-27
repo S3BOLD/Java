@@ -1,3 +1,4 @@
+
 public class ModoPreparo {
     private String etapa;
 
@@ -9,9 +10,11 @@ public class ModoPreparo {
         return etapa;
     }
 
-    @Override
-    public String toString() {
-        return "- " + etapa;
+    public String toJson() {
+        return "{\"etapa\":\"" + escapeJson(etapa) + "\"}";
     }
-    
+
+    private String escapeJson(String s) {
+        return s.replace("\\", "\\\\").replace("\"", "\\\"");
+    }
 }
